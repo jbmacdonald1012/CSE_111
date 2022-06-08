@@ -1,0 +1,118 @@
+Proposal for a Student Chosen Program
+
+1. What is the title of your program? DiceRoller
+
+2. What real world problem will your program address or help to solve? 
+
+--------------------------------------------------------- PROGRAM CONCEPT ------------------------------------------------------------------------------
+
+I'm building this program for one of my hobbies of playing Dungeons and Dragons. One of the key components of DnD is rolling dice. 
+
+I want the user to enter various different components of rolling dice:
+- Use modifiers automatically (Player will fill out "CharacterSheet.csv prior to running the program so their modifiers can be added to the program automatically)
+- Update modifiers: sometimes allies can give bonuses to a player, this allows the player to add bonuses to their character sheet in the program, without having to update
+  the "CharacterSheet.csv file" since typically the bonuses given are temporary. 
+- The type of roll: there are many types of rolls ie initiative, perception, wisdom, charisma, constitution, dexterity check, strength check, attack rolls, deception check, 
+  slight of hand, persuasion check, history check, inteligence check, saving throws (dexterity, strength, wisdom, constitution, charisma, intelligence )
+- The type of Dice that they'd like to roll (D-100, D-20, D-12, D-8, D-6, D-4, D-3 (this exists in the game, but not in real life, so the program
+allows the DM (Dungeon Master) and player access to it without haveing to roll a D-6 and divide the result by 2))
+
+--------------------------------------------------------- PROGRAM DESIGN --------------------------------------------------------------------------------
+Program will give a welcome message 
+On Start Progam will ask for the player's character name and store it for use throughout 
+
+------- Menu--------- 
+    1. Update modifiers 
+    2. Roll Dice 
+    3. End session
+
+    ----- OPTIONS -------
+        ---- Update modifiers -----
+            updateModifiers()
+                - Print the dictionary and ask the player to enter the number of the modifier they'd like to update 
+                    - Ask the player to update the modifier
+                    - Display " {modifier} modifier has been updated to {updated_modifier}"
+                -Ask player to type "menu" to go to menu
+                    - Call menu()
+
+        ---- Roll Dice ----
+
+            - Option 2a. Ability check
+                - Player can enter the ability 
+                - Advantage or Disadvantage (Advantage = roll 2 dice take the highest roll), (Disadvantage = roll 2 dice take the lowest)
+                    -Program defaults to normal. If Advantage or Disadvantage, program will do what's outlined above 
+                -Display the roll/rolls (if advantage or disadvantage)
+                -Notify the player if a D-20 dice roll equals 20 aka Natural 20, which is a HUGE deal in DnD. It will also notify if the dice roll is 1 aka Natural 1, 
+                as this can have particularly bad consequences depending on what the DM rules are regarding critical fails. 
+                - Ask player to type "menu" to go to menu
+                    - Call menu()
+
+            Option 2b. Attack Roll
+                - Advantage or Disadvantage
+                    (same as 2a)
+                - Display the roll/rolls
+                - Notify about natural 20 as Critical Hit and natural 1 as stated above
+                - Hit or miss? (Players add Critical base damage as managed by their individual DM)
+                    - When player indicates hit program asks Roll Damage? Y/N
+                        - Y calls Damage Roll function 
+                        - N calls menu() 
+
+            Option 2c. Damage Roll
+                - Player enters the number of dice they need 
+                - Player enters dice type 
+                - Enemy resistent? Y / N
+                    - If reisitent divide damage by 2 and round down 
+                - Roll necessary dice 
+                - Display the individual dice rolls 
+                - Display the total amount of damage (This will include halved damage if enemy is resistent)
+                - Ask player to type "menu" to go to menu
+                    - Call menu()
+
+            Option 2d. Saving Throw
+                - Player enters the type of saving throws
+                - Advantage or Disadvantage
+                - Roll Dice with corresponding modifier
+                - Display the saving throw
+                    - Notify if the Dice was a Natural 20 or Natural 1 as listed in 2a
+                - Ask player to type "menu" to go to menu
+                    - Call menu()
+
+            Option 2e. Addtional Dice Rolls (Ability Recharges, Percentile Dice, as needed)
+                - Player enters the dice type
+                - Roll Dice
+                - Display Result 
+                - Ask player to type "menu" to go to menu
+                    - Call menu()
+
+        ---- End session ----
+            - Display Thank you message to player and bid them Goodbye.
+    
+3. What will you learn from developing this program?
+I will learn the importance of building a larger program and how to break it down into multiple functions to help reduce the amount of work going on in main. Along with that
+my program will make use of a dictionary, as well as iteration through the dictionary for the different player skills listed in that dictionary. 
+I will also integrate skills from both CSE 110 and this class to allow the program to continue to run as long as the player needs it, rather than require that the player start the
+program each time they need to roll the dice.
+
+4. What Python modules will your program use? (Some examples are: csv,
+datetime, functools, matplotlib, math, pandas, pytest, random, requests,
+and tkinter.)
+
+This program will need Random, since rolling a dice returns a random number 
+I also will have a CSV file with the different modifiers, so that the user doesn't have to enter them into the program, rather the program reads it from a 
+"Character Sheet" which has all the modifiers listed. 
+I will also be using pytest to test my functions to the best of my abilities 
+
+5. Will you separate your Python program into functions that each
+perform a single task? 
+
+Yes
+
+6. Will you write test functions to test many of your program functions?
+
+Yes
+
+(Remember that it's hard to test functions that get user input and print
+output. It's easy to test functions that don't get user input and don't
+print output but instead have parameters and return a result. Therefore,
+you should write most of your program functions to have parameters and
+return a result.)

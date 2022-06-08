@@ -1,0 +1,17 @@
+Please respond thoroughly (at least two sentences for each question) to
+the following three questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+    When we were working on the drawing activity, I was able to see how the use of functions made it much easier to draw, and stay organized when it comes to debugging. I was able to keep the main function with only function calls, and not have any defined functions inside the main function. This made the drawing program much easier. 
+
+
+2. In your judgment, what is the value of test functions?
+
+Test functions are 100% necessary, as they can save a developer lots of work and time, as the test function can run through different scenarios much faster than an individual who is testing it themselves. Test functions can let you know whether the function passed the test or not, and can direct you to where any failures occurred, without the need to run the programs over and over again to find errors. 
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
+
+While I'm in the development stage, I tend to write the program, and then debug through it to see if there are any errors that come up. Fixing any of them that come up, and then running through the program again. One area that I could improve is continuing to write test functions and allow them to do the work of testing for me, as well as, work on including more exception handling for user-based input. 
